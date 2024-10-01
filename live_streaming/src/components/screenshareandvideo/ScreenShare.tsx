@@ -8,7 +8,9 @@ export default function ScreenShare({ screenShareOn, onCloseScreen, screenTrack,
     const [screenVideoTrack, setScreenVideoTrack] = useState<ILocalVideoTrack | null>(null);
     const [screenAudioTrack, setScreenAudioTrack] = useState<ILocalAudioTrack | null>(null);
 
-    useJoin({ appid: "afc107ff3419442db93ec89a836047b1", channel: channel, token: null }, screenShareOn, client);
+    const appId = import.meta.env.VITE_AGORA_APP_ID ?? "";
+
+    useJoin({ appid: appId, channel: channel, token: null }, screenShareOn, client);
 
     useEffect(() => {
         if (!screenTrack) {

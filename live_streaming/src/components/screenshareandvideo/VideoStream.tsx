@@ -3,7 +3,7 @@ export default function VideoStream({ cam, mic, videoTrackOn }: { cam: boolean; 
     const { localMicrophoneTrack } = useLocalMicrophoneTrack(mic);
     const { localCameraTrack } = useLocalCameraTrack(cam);
 
-    usePublish([localCameraTrack]);
+    usePublish([localCameraTrack, localMicrophoneTrack]);
 
     return (
         <>
@@ -12,7 +12,7 @@ export default function VideoStream({ cam, mic, videoTrackOn }: { cam: boolean; 
                     videoTrack={localCameraTrack}
                     cameraOn={cam && videoTrackOn}
                     audioTrack={localMicrophoneTrack}
-                    micOn={mic}
+                    micOn={mic && videoTrackOn}
                     cover={"https://www.agora.io/en/wp-content/uploads/2022/10/3d-spatial-audio-icon.svg"}
                 />
             </div>

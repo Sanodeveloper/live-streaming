@@ -16,7 +16,7 @@ export default function Comment({ roomId, name, handleNum }: { roomId: number; n
             return response.json();
         }
     });
-    const [comments, setComments] = useState<CommentInterface[]>(data);
+    const [comments, setComments] = useState<CommentInterface[]>(data ?? []);
 
     //socket connection
     const socket = useRef<SocketIOClient.Socket | null>(null);
@@ -68,7 +68,7 @@ export default function Comment({ roomId, name, handleNum }: { roomId: number; n
                 {comments.map((comment, index) => (
                     <div key={index} className="border-b border-gray-600 last:border-none p-2">
                         <p className="font-bold">{comment.userName}</p>
-                        <p className="ml-2 text-sm">{comment.comment}</p>
+                        <p className="ml-2 text-sm break-all">{comment.comment}</p>
                     </div>
                 ))}
             </div>

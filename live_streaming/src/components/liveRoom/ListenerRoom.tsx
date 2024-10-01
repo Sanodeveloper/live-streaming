@@ -46,6 +46,10 @@ export default function ListenerRoom({ name }: { name: string }): JSX.Element {
     let count = 0;
     let isTrack = false;
     remoteUsers.forEach((user) => {
+        console.log("----------------------------------------------")
+        console.log(user.hasVideo);
+        console.log(user.hasAudio);
+        console.log("----------------------------------------------")
         if (user.hasVideo || user.hasAudio) {
             count++;
         }

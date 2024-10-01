@@ -10,6 +10,8 @@ export const fetchData = async ({ name, password }: LoginInterface) => {
         body: JSON.stringify({ name, password }),
         credentials: "include"
     });
+    console.log(response.ok);
+    console.log(response.status);
     if (!response.ok && response.status !== 401) {
         throw new Error("fetch failed");
     }

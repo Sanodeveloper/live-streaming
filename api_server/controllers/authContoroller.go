@@ -63,7 +63,7 @@ func (c *AuthController) Login(ctx *gin.Context) {
 		return
 	}
 
-	ctx.SetCookie("sessionId", token, 60*2, "/", "localhost", false, true)
+	ctx.SetCookie("sessionId", token, 60*60, "/", "localhost", false, true)
 	ctx.JSON(http.StatusOK, gin.H{"message": "logged in"})
 }
 
